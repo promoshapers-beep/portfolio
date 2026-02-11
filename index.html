@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PROMO SHAPERS | The Viral Agency</title>
+
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    
+
+    <style>
+
+        :root {
+
+            --bg: #0e0e0e;
+
+            --surface: #1a1a1a;
+
+            --text: #ffffff;
+
+            --brand-red: #E60000; 
+
+            --neon-green: #ccff00;
+
+            --neon-cyan: #00ffff;
+
+            --neon-yellow: #ffdd00;
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            cursor: none; /* Custom cursor active */
+
+        }
+
+
+
+        body {
+
+            background-color: var(--bg);
+
+            color: var(--text);
+
+            font-family: 'Space Grotesk', sans-serif;
+
+            overflow-x: hidden;
+
+            width: 100vw;
+
+        }
+
+
+
+        /* --- GRAIN OVERLAY --- */
+
+        .noise-overlay {
+
+            position: fixed;
+
+            top: 0; left: 0; width: 100%; height: 100%;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            opacity: 0.05;
+
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+
+        }
+
+
+
+        /* --- CUSTOM CURSOR --- */
+
+        .cursor-dot, .cursor-circle {
+
+            position: fixed;
+
+            top: 0; left: 0;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            z-index: 10000;
+
+            pointer-events: none;
+
+        }
+
+        .cursor-dot {
+
+            width: 10px; height: 10px;
+
+            background: var(--brand-red);
+
+        }
+
+        .cursor-circle {
+
+            width: 40px; height: 40px;
+
+            border: 2px solid var(--brand-red);
+
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+
+        }
+
+        
+
+        body.hovering .cursor-circle {
+
+            width: 80px; height: 80px;
+
+            background: rgba(230, 0, 0, 0.2);
+
+            border-color: transparent;
+
+        }
+
+
+
+        /* --- NAVIGATION --- */
+
+        nav {
+
+            position: fixed;
+
+            top: 0; width: 100%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 1.5rem 4%;
+
+            z-index: 100;
+
+            background: rgba(14, 14, 14, 0.8);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        }
+
+
+
+        .logo {
+
+            height: 50px;
+
+            animation: pulse-logo 2s infinite ease-in-out;
+
+        }
+
+
+
+        .cta-btn {
+
+            background: var(--brand-red);
+
+            color: white;
+
+            padding: 0.8rem 2rem;
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+
+            border: 2px solid white;
+
+            box-shadow: 4px 4px 0px white;
+
+            transition: all 0.2s;
+
+            transform: skew(-10deg);
+
+            cursor: none; /* Ensure custom cursor visible */
+
+        }
+
+
+
+        .cta-btn:hover {
+
+            transform: skew(-10deg) translate(-2px, -2px);
+
+            box-shadow: 6px 6px 0px var(--neon-cyan);
+
+            background: var(--neon-cyan);
+
+            color: black;
+
+            border-color: black;
+
+        }
+
+
+
+        /* --- HERO SECTION --- */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+
+            padding: 8rem 2rem 4rem;
+
+        }
+
+
+
+        .mega-text {
+
+            font-family: 'Bebas Neue', sans-serif;
+
+            font-size: clamp(4rem, 15vw, 15rem);
+
+            line-height: 0.85;
+
+            text-transform: uppercase;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+
+        .text-outline {
+
+            -webkit-text-stroke: 3px white;
+
+            color: transparent;
+
+            transition: color 0.5s;
+
+        }
+
+        .text-outline:hover {
+
+            color: white;
+
+        }
+
+
+
+        .highlight-green {
+
+            color: var(--neon-green);
+
+            text-shadow: 5px 5px 0px rgba(255,255,255,0.2);
+
+            display: inline-block;
+
+            animation: glitch 3s infinite;
+
+        }
+
+
+
+        .sticker {
+
+            position: absolute;
+
+            z-index: 10;
+
+            animation: float 6s ease-in-out infinite;
+
+        }
+
+        .s-1 { top: 20%; left: 10%; transform: rotate(-15deg); }
+
+        .s-2 { bottom: 20%; right: 10%; transform: rotate(10deg); animation-delay: 1s; }
+
+        
+
+        .sticker-badge {
+
+            background: var(--brand-red);
+
+            color: white;
+
+            font-family: 'Permanent Marker', cursive;
+
+            padding: 2rem;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            box-shadow: 5px 5px 0px rgba(255,255,255,0.5);
+
+            font-size: 1.2rem;
+
+            text-align: center;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 150px; height: 150px;
+
+        }
+
+
+
+        /* --- MARQUEE --- */
+
+        .marquee-container {
+
+            background: var(--brand-red);
+
+            color: white;
+
+            padding: 1rem 0;
+
+            transform: rotate(-2deg) scale(1.05);
+
+            border-top: 3px solid black;
+
+            border-bottom: 3px solid black;
+
+            overflow: hidden;
+
+            white-space: nowrap;
+
+            margin: 4rem 0;
+
+        }
+
+        .marquee-content {
+
+            display: inline-block;
+
+            font-family: 'Bebas Neue';
+
+            font-size: 2.5rem;
+
+            animation: marquee 20s linear infinite;
+
+        }
+
+        .marquee-content span { margin: 0 2rem; }
+
+
+
+        /* --- SERVICES --- */
+
+        .services {
+
+            padding: 6rem 5%;
+
+        }
+
+        .section-header {
+
+            font-family: 'Bebas Neue';
+
+            font-size: 5rem;
+
+            margin-bottom: 3rem;
+
+            text-transform: uppercase;
+
+            color: white;
+
+            text-align: left;
+
+            border-bottom: 4px solid var(--brand-red);
+
+            display: inline-block;
+
+        }
+
+
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+            gap: 2rem;
+
+        }
+
+
+
+        .card {
+
+            background: var(--surface);
+
+            border: 2px solid white;
+
+            padding: 3rem 2rem 2rem;
+
+            position: relative;
+
+            transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+            overflow: hidden;
+
+            min-height: 250px;
+
+        }
+
+
+
+        .card:hover {
+
+            transform: translate(-10px, -10px);
+
+            box-shadow: 10px 10px 0px var(--brand-red);
+
+            background: #222;
+
+            border-color: var(--neon-green);
+
+        }
+
+
+
+        .card-num {
+
+            position: absolute;
+
+            top: -10px;
+
+            right: 15px;
+
+            font-family: 'Bebas Neue';
+
+            font-size: 6rem;
+
+            color: rgba(255,255,255,0.05);
+
+            line-height: 1;
+
+            pointer-events: none;
+
+            transition: 0.3s;
+
+        }
+
+        
+
+        .card:hover .card-num {
+
+            color: rgba(255,255,255,0.2);
+
+            transform: scale(1.1);
+
+        }
+
+
+
+        .card h3 {
+
+            font-family: 'Bebas Neue';
+
+            font-size: 2.5rem;
+
+            color: var(--neon-cyan);
+
+            margin-bottom: 1rem;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+
+        .card p {
+
+            color: #ccc;
+
+            line-height: 1.6;
+
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 1.1rem;
+
+        }
+
+
+
+        /* --- GAME SECTION STYLES --- */
+
+        .game-section {
+
+            padding: 4rem 5%;
+
+            text-align: center;
+
+            background: #000;
+
+        }
+
+
+
+        .game-container {
+
+            max-width: 900px;
+
+            height: 500px;
+
+            margin: 0 auto;
+
+            border: 4px solid white;
+
+            background: #111;
+
+            position: relative;
+
+            box-shadow: 15px 15px 0 var(--brand-red);
+
+            overflow: hidden;
+
+            cursor: crosshair; /* Helps player know it's a game */
+
+        }
+
+
+
+        .game-ui {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 1rem 2rem;
+
+            font-family: 'Bebas Neue';
+
+            font-size: 2.5rem;
+
+            color: var(--neon-cyan);
+
+            background: rgba(0,0,0,0.5);
+
+            border-bottom: 1px solid #333;
+
+            pointer-events: none;
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+
+        .game-target {
+
+            position: absolute;
+
+            font-size: 4rem;
+
+            user-select: none;
+
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            transition: transform 0.1s;
+
+        }
+
+
+
+        .game-target:active {
+
+            transform: scale(0.9);
+
+        }
+
+
+
+        .game-overlay {
+
+            position: absolute;
+
+            top: 0; left: 0; width: 100%; height: 100%;
+
+            background: rgba(0,0,0,0.8);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 10;
+
+        }
+
+
+
+        .game-title {
+
+            font-family: 'Bebas Neue';
+
+            font-size: 5rem;
+
+            color: white;
+
+            margin-bottom: 1rem;
+
+            line-height: 1;
+
+        }
+
+
+
+        .game-msg {
+
+            font-family: 'Space Grotesk';
+
+            color: var(--neon-green);
+
+            font-size: 1.2rem;
+
+            margin-bottom: 2rem;
+
+        }
+
+
+
+        /* --- CLIENTS --- */
+
+        .clients-section {
+
+            padding: 6rem 5%;
+
+            background: #111;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .sticker-wall {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 2rem;
+
+            padding: 2rem 0;
+
+        }
+
+
+
+        .client-sticker {
+
+            background: white;
+
+            color: black;
+
+            padding: 1rem 2rem;
+
+            font-family: 'Bebas Neue';
+
+            font-size: 1.5rem;
+
+            text-decoration: none;
+
+            border: 3px solid black;
+
+            transform: rotate(var(--r));
+
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2);
+
+            position: relative;
+
+        }
+
+
+
+        .client-sticker:hover {
+
+            transform: scale(1.2) rotate(0deg) !important;
+
+            z-index: 100;
+
+            box-shadow: 10px 10px 0px var(--brand-red);
+
+            background: var(--neon-cyan);
+
+            border-color: white;
+
+        }
+
+        
+
+        .client-sticker::after {
+
+            content: '↗';
+
+            font-size: 1rem;
+
+            margin-left: 5px;
+
+            opacity: 0.5;
+
+        }
+
+
+
+        /* --- FOUNDER --- */
+
+        .founder-wrapper {
+
+            display: flex;
+
+            justify-content: center;
+
+            padding: 6rem 5%;
+
+            background: radial-gradient(circle, #222 0%, #0e0e0e 100%);
+
+        }
+
+
+
+        .founder-card {
+
+            background: black;
+
+            border: 4px solid var(--neon-green);
+
+            padding: 3rem;
+
+            max-width: 700px;
+
+            text-align: center;
+
+            box-shadow: 15px 15px 0px var(--brand-red);
+
+            transform: rotate(-2deg);
+
+            transition: 0.3s;
+
+        }
+
+        
+
+        .founder-card:hover {
+
+            transform: rotate(0deg);
+
+        }
+
+
+
+        .founder-card h2 {
+
+            font-family: 'Bebas Neue';
+
+            font-size: 4rem;
+
+            color: white;
+
+        }
+
+
+
+        .founder-card span {
+
+            color: var(--neon-green);
+
+        }
+
+
+
+        footer {
+
+            border-top: 1px solid #333;
+
+            padding: 3rem;
+
+            text-align: center;
+
+            font-family: 'Space Grotesk';
+
+            color: #666;
+
+        }
+
+
+
+        /* Animations */
+
+        @keyframes float {
+
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+
+            50% { transform: translateY(-20px) rotate(-10deg); }
+
+        }
+
+        @keyframes pulse-logo {
+
+            0%, 100% { transform: scale(1); }
+
+            50% { transform: scale(1.05); }
+
+        }
+
+        @keyframes marquee {
+
+            0% { transform: translateX(0); }
+
+            100% { transform: translateX(-50%); }
+
+        }
+
+        @keyframes glitch {
+
+            0% { transform: translate(0); }
+
+            20% { transform: translate(-2px, 2px); }
+
+            40% { transform: translate(-2px, -2px); }
+
+            60% { transform: translate(2px, 2px); }
+
+            80% { transform: translate(2px, -2px); }
+
+            100% { transform: translate(0); }
+
+        }
+
+        @keyframes popIn { 
+
+            0% { transform: scale(0); opacity: 0;} 
+
+            80% { transform: scale(1.2); opacity: 1;} 
+
+            100% { transform: scale(1); } 
+
+        }
+
+
+
+        @media(max-width: 768px) {
+
+            .mega-text { font-size: 5rem; }
+
+            .sticker { display: none; }
+
+            .section-header { font-size: 3rem; }
+
+            .cursor-circle, .cursor-dot { display: none; }
+
+            * { cursor: auto; }
+
+            .game-container { height: 400px; }
+
+            .game-title { font-size: 3rem; }
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="noise-overlay"></div>
+
+    
+
+    <div class="cursor-dot"></div>
+
+    <div class="cursor-circle"></div>
+
+
+
+    <nav class="hover-trigger">
+
+        <img src="LOGO 1 (3).png" alt="PROMO SHAPERS" class="logo">
+
+        <a href="https://wa.me/919624271952" class="cta-btn">LET'S TALK</a>
+
+    </nav>
+
+
+
+    <header class="hero">
+
+        
+
+        <div class="sticker s-1">
+
+            <div class="sticker-badge">VIRAL<br>MODE ON</div>
+
+        </div>
+
+        <div class="sticker s-2">
+
+            <div class="sticker-badge" style="background: var(--neon-yellow); color: black; border-color: black;">BOOK<br>NOW!</div>
+
+        </div>
+
+
+
+        <div class="mega-text">
+
+            <div class="text-outline">WE SHAPE</div>
+
+            <div class="highlight-green">VIRAL</div>
+
+            <div class="text-outline">CONTENT</div>
+
+            <div style="font-size: 0.5em; letter-spacing: 5px; margin-top: 1rem; font-family: 'Space Grotesk'; font-weight: bold; color: var(--text);">
+
+                DIGITAL MARKETING • BRANDING • GROWTH
+
+            </div>
+
+        </div>
+
+
+
+    </header>
+
+
+
+    <div class="marquee-container">
+
+        <div class="marquee-content">
+
+            <span>★ DIGITAL MARKETING</span>
+
+            <span>★ SOCIAL MEDIA</span>
+
+            <span>★ CONTENT CREATION</span>
+
+            <span>★ BRANDING</span>
+
+            <span>★ EDITING</span>
+
+            <span>★ PERFORMANCE ADS</span>
+
+            <span>★ DIGITAL MARKETING</span>
+
+            <span>★ SOCIAL MEDIA</span>
+
+            <span>★ CONTENT CREATION</span>
+
+            <span>★ BRANDING</span>
+
+            <span>★ EDITING</span>
+
+            <span>★ PERFORMANCE ADS</span>
+
+        </div>
+
+    </div>
+
+
+
+    <section class="services">
+
+        <h2 class="section-header">WHAT WE <span style="color: var(--brand-red)">DO</span></h2>
+
+        <div class="grid">
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">01</span>
+
+                <h3>DIGITAL MARKETING</h3>
+
+                <p>Complete domination of your local and online market space through strategic planning.</p>
+
+            </div>
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">02</span>
+
+                <h3>SOCIAL MEDIA MKTG.</h3>
+
+                <p>We manage the chaos. Engagement-focused strategies for Instagram & Facebook Growth.</p>
+
+            </div>
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">03</span>
+
+                <h3>CONTENT CREATION</h3>
+
+                <p>Reels, TikToks, and Posts that people actually want to watch and share.</p>
+
+            </div>
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">04</span>
+
+                <h3>PRO EDITING</h3>
+
+                <p>Turning raw footage into high-retention, professional-grade video assets.</p>
+
+            </div>
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">05</span>
+
+                <h3>PERFORMANCE MKTG.</h3>
+
+                <p>Paid ad campaigns laser-focused on ROI and lead generation. No fluff.</p>
+
+            </div>
+
+            <div class="card hover-trigger">
+
+                <span class="card-num">06</span>
+
+                <h3>BRANDING</h3>
+
+                <p>Building unparalleled identities from logo design to complete brand voice guidelines.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="game-section">
+
+        <h2 class="section-header" style="border: none; text-align: center; width: 100%;">CAN YOU GO <span style="color: var(--neon-green)">VIRAL?</span></h2>
+
+        <div class="game-container hover-trigger" id="gameContainer">
+
+            <div class="game-ui">
+
+                <div>VIEWS: <span id="score" style="color: white;">0</span></div>
+
+                <div>TIME: <span id="time" style="color: var(--brand-red);">15</span>s</div>
+
+            </div>
+
+            
+
+            <div class="game-overlay" id="gameOverlay">
+
+                <div class="game-title" id="overlayTitle">VIRAL CLICKER</div>
+
+                <div class="game-msg" id="overlayMsg">Click the emojis to gain views!</div>
+
+                <button class="cta-btn" id="startBtn">START CHALLENGE</button>
+
+            </div>
+
+
+
+            <div id="gameArea" style="position: relative; width: 100%; height: 100%;"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="clients-section">
+
+        <h2 class="section-header" style="text-align: center; display: block; border: none;">OUR <span style="color: var(--neon-cyan)">CLIENTS</span></h2>
+
+        <p style="text-align: center; margin-bottom: 2rem; color: #888;">(Hover to Explode)</p>
+
+        
+
+        <div class="sticker-wall">
+
+            <a href="https://www.instagram.com/amardeep.mart/" class="client-sticker hover-trigger" style="--r: -3deg;">Amardeep Mart</a>
+
+            <a href="https://www.instagram.com/group.classes/" class="client-sticker hover-trigger" style="--r: 2deg;">Group Classes</a>
+
+            <a href="https://www.instagram.com/positive_classes/" class="client-sticker hover-trigger" style="--r: -5deg;">Positive Classes</a>
+
+            <a href="https://www.instagram.com/mg__overseas/" class="client-sticker hover-trigger" style="--r: 4deg;">MGC Navsari</a>
+
+            <a href="https://www.instagram.com/dr.tejani_skin_clinic/" class="client-sticker hover-trigger" style="--r: -2deg;">Dr. Tejani's Clinic</a>
+
+            <a href="https://www.instagram.com/sitai_multispeciality_clinic/" class="client-sticker hover-trigger" style="--r: 5deg;">Sitai Clinic Pune</a>
+
+            <a href="https://www.instagram.com/drhetal_nikhar_skinclinic/" class="client-sticker hover-trigger" style="--r: -4deg;">Nikhar Skin Clinic</a>
+
+            <a href="https://www.instagram.com/pathari_na_result_bole_che/" class="client-sticker hover-trigger" style="--r: 3deg;">Dr. Vishal Dhameliya</a>
+
+            <a href="https://www.instagram.com/flaunting_salon/" class="client-sticker hover-trigger" style="--r: -1deg;">Flaunting Salon</a>
+
+            <a href="https://www.instagram.com/vastupanth/" class="client-sticker hover-trigger" style="--r: 6deg;">Vastu Panth</a>
+
+            <a href="https://www.instagram.com/vm_brothers_33/" class="client-sticker hover-trigger" style="--r: -6deg;">V.M. Brothers</a>
+
+        </div>
+        <BR></BR>
+        <center><H2>And Many More...</H2></center>
+
+    </section>
+
+
+
+    <section class="founder-wrapper">
+
+        <div class="founder-card hover-trigger">
+
+            <p style="letter-spacing: 2px; color: #666; margin-bottom: 1rem;">THE BRAINS</p>
+
+            <h2>HARDIK <span>RAVAL</span></h2>
+
+            <p style="margin-top: 1.5rem; font-size: 1.2rem;">"We don't follow trends. We set them."</p>
+
+            <a href="https://wa.me/919624271952" class="cta-btn" style="margin-top: 2rem; display: inline-block; background: var(--neon-cyan); color: black;">WORK WITH ME</a>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>© 2026 PROMO SHAPERS. MADE IN INDIA.</p>
+
+    </footer>
+
+
+
+    <script>
+
+        // --- CUSTOM CURSOR ---
+
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        const cursorCircle = document.querySelector('.cursor-circle');
+
+        const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button');
+
+
+
+        document.addEventListener('mousemove', (e) => {
+
+            cursorDot.style.left = e.clientX + 'px';
+
+            cursorDot.style.top = e.clientY + 'px';
+
+            
+
+            cursorCircle.animate({
+
+                left: e.clientX + 'px',
+
+                top: e.clientY + 'px'
+
+            }, { duration: 500, fill: "forwards" });
+
+        });
+
+
+
+        hoverTriggers.forEach(trigger => {
+
+            trigger.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+
+            trigger.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+
+        });
+
+
+
+        // --- MINI GAME LOGIC ---
+
+        const startBtn = document.getElementById('startBtn');
+
+        const overlay = document.getElementById('gameOverlay');
+
+        const gameArea = document.getElementById('gameArea');
+
+        const scoreEl = document.getElementById('score');
+
+        const timeEl = document.getElementById('time');
+
+        const overlayTitle = document.getElementById('overlayTitle');
+
+        const overlayMsg = document.getElementById('overlayMsg');
+
+
+
+        let score = 0;
+
+        let timeLeft = 15;
+
+        let gameInterval;
+
+        let spawnInterval;
+
+        let isPlaying = false;
+
+        
+
+        const targets = ['🔥', '🚀', '❤️', '⚡', '👀'];
+
+
+
+        startBtn.addEventListener('click', startGame);
+
+
+
+        function startGame() {
+
+            score = 0;
+
+            timeLeft = 15;
+
+            scoreEl.innerText = score;
+
+            timeEl.innerText = timeLeft;
+
+            overlay.style.display = 'none';
+
+            isPlaying = true;
+
+            
+
+            // Clear previous targets
+
+            gameArea.innerHTML = '';
+
+
+
+            // Timer Loop
+
+            gameInterval = setInterval(() => {
+
+                timeLeft--;
+
+                timeEl.innerText = timeLeft;
+
+                if(timeLeft <= 0) endGame();
+
+            }, 1000);
+
+
+
+            // Spawn Loop (Faster as time goes on)
+
+            spawnInterval = setInterval(spawnTarget, 600);
+
+        }
+
+
+
+        function spawnTarget() {
+
+            if(!isPlaying) return;
+
+
+
+            const el = document.createElement('div');
+
+            el.classList.add('game-target');
+
+            el.innerText = targets[Math.floor(Math.random() * targets.length)];
+
+            
+
+            // Random Position
+
+            const x = Math.random() * (gameArea.clientWidth - 50);
+
+            const y = Math.random() * (gameArea.clientHeight - 50);
+
+            
+
+            el.style.left = `${x}px`;
+
+            el.style.top = `${y}px`;
+
+            
+
+            // Random Color for variety
+
+            const colors = ['#ccff00', '#00ffff', '#ff00ff', '#ffffff'];
+
+            el.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+
+
+            el.addEventListener('mousedown', () => {
+
+                score++;
+
+                scoreEl.innerText = score;
+
+                // Add pop sound effect logic here if desired
+
+                el.remove();
+
+            });
+
+
+
+            // Auto remove after 1.5s if not clicked
+
+            setTimeout(() => {
+
+                if(el.parentNode) el.remove();
+
+            }, 1500);
+
+
+
+            gameArea.appendChild(el);
+
+        }
+
+
+
+        function endGame() {
+
+            isPlaying = false;
+
+            clearInterval(gameInterval);
+
+            clearInterval(spawnInterval);
+
+            
+
+            overlay.style.display = 'flex';
+
+            overlayTitle.innerText = "GAME OVER";
+
+            
+
+            let rank = "NEWBIE";
+
+            if(score > 10) rank = "CONTENT CREATOR";
+
+            if(score > 20) rank = "INFLUENCER";
+
+            if(score > 30) rank = "VIRAL GOD";
+
+
+
+            overlayMsg.innerHTML = `Views: <span style="color:white">${score}</span>k<br>Rank: <span style="color:var(--neon-green)">${rank}</span>`;
+
+            startBtn.innerText = "PLAY AGAIN";
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
